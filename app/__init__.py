@@ -15,13 +15,13 @@ bootstrap = Bootstrap(app)
 app.config.from_object(Config)
 
 #app variables for Login
-# login = LoginManager(app)
+login = LoginManager(app)
 
 #when a page requires somebody to login, the application will instead route them to the correct route described below
-# login.login_view = 'login'
+login.login_view = 'login'
 
 #app variables for database usage
-db =SQLAlchemy(app)
+db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 #load home page
 from app import routes
