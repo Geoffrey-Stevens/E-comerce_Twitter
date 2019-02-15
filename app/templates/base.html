@@ -73,6 +73,16 @@
 
 {%block content%}
 <!-- block app content allows us to keep base content that is similar to all files i.e. a filler -->
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
 {% block app_content%}{%endblock%}
 
 
