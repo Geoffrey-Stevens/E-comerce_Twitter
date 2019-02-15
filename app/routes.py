@@ -65,7 +65,29 @@ def title():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+
+    if current_user.is_authenticated:
+        flash('You are already logged in!')
+        return redirect(url_for('index'))
+
     form = LoginForm()
+
+    #check if form is submitted, Log user in if so
+
+    if form.validate_on_submit():
+        #query the database for the user trying to log in
+        user = User.query.filter_by(username=form.username.data).first()
+
+        #if user doesnt exist, reaload page and flash message
+        if user is None or user.check_password(form.password.data):
+            flash('Credentials are incorrect')
+            return redirect(url_for('login'))
+
+        #if user does exist, and credentials are correct, lof them in and send them to their Profile
+        login_user(user, remember=form.remember_me.data)
+        flash('you are now logged in!')
+        return redirect(url_for('posts'))
+
     return render_template('login.html', title='Login', form=form)
 
 @app.route('/register', methods=['GET', 'POST'])
