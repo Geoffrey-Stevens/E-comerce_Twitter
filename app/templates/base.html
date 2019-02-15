@@ -48,6 +48,20 @@
           {%endif%}
           <a class="nav-link" href="{{ url_for('title') }}">Title</a>
         </li>
+        {% if title == 'Login' %}
+        <li class="nav-item active">
+          {% else %}
+        <li class='nav-item'>
+          {%endif%}
+          <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+        </li>
+        {% if title == 'Register' %}
+        <li class="nav-item active">
+          {% else %}
+        <li class='nav-item'>
+          {%endif%}
+          <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+        </li>
         </ul>
       </div>
     </nav>
@@ -62,5 +76,5 @@
 {% block app_content%}{%endblock%}
 
 
-  </footer>
+
 {% endblock %}
