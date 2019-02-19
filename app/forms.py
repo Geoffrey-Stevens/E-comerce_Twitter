@@ -33,7 +33,7 @@ class RegisterForm(FlaskForm):
     password2 = PasswordField('Re-type Password:', validators = [DataRequired(), EqualTo('password')])
     submit = SubmitField('Register')
 
-#setup validation methds to be cjecked when form is sbumitted
+#setup validation methds to be checked when form is sbumitted
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
         if user is not None:

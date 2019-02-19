@@ -87,7 +87,7 @@ def login():
             flash('Credentials are incorrect')
             return redirect(url_for('login'))
 
-        #if user does exist, and credentials are correct, lof them in and send them to their Profile
+        #if user does exist, and credentials are correct, let them in and send them to their Profile
         login_user(user, remember=form.remember_me.data)
         flash('you are now logged in!')
         return redirect(url_for('posts', username=current_user.username))
