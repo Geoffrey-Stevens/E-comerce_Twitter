@@ -20,5 +20,5 @@ class Config(object):
 
 
     #uri for postgres db
-    #not for Heroku yet
-    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:Timberland1@localhost:5432/ecommerce'
+
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
