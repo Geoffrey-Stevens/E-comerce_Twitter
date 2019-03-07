@@ -13,6 +13,8 @@ class Config(object):
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    STRIPE_SECRET_KEY = 'sk_test_RQksxsXCKNmT9Ls8ADeD45mc'
+
     #setup our database URI, which is the location of our database file/server
     # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
     #     'sqlite:///' + os.path.join(BASEDIR, 'app.db')

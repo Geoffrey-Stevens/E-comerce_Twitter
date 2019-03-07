@@ -108,8 +108,28 @@ function updateTotals() {
 
   // insert that total into all places that render the total price
   $('.total').text(`$${total}`);
-}
 
+//consver total to cents
+  total = total * 100;
+  total = Math.ceil(total);
+
+// insert form into id of pay
+  let html = `
+  <form action="/pay/?amount=${total}" method="POST">
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="pk_test_1ZMA4aFQr8w59Rl7OVVAyAC6"
+      data-amount="${total}"
+      data-name="Demo Site"
+      data-description="Widget"
+      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+      data-locale="auto">
+    </script>
+  </form>
+  `;
+
+  $('#pay').html(html);
+}
 
 function countDuplicates(id) {
   let cart = JSON.parse(sessionStorage.getItem('cart'));

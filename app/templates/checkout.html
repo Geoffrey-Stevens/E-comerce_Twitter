@@ -40,18 +40,8 @@
               </tr>
               <tr>
                 <th colSpan="2"></th>
-                <th>
-                  <form action="{{ url_for('pay')}}" method="POST">
-                    <script
-                      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                      data-key="pk_test_1ZMA4aFQr8w59Rl7OVVAyAC6"
-                      data-amount="999"
-                      data-name="Demo Site"
-                      data-description="Widget"
-                      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                      data-locale="auto">
-                    </script>
-                  </form>
+                <th id="pay">
+                  <!-- render form in js -->
                 </th>
               </tr>
             </tfoot>
