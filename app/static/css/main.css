@@ -10,8 +10,17 @@ body {
 
 }
 
+.extra-margin-lg {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
 .top-margin-lg {
   margin-top: 100px;
+}
+
+.top-margin-md {
+  margin-top: 50px;
 }
 
 .top-margin-sm {
@@ -56,6 +65,11 @@ body {
 .card>h4 {
   padding-top: 15px;
 }
+
+#checkout-btn{
+  width: 100%;
+}
+
 footer {
   background-color: rgba(0, 0, 0, 0.8)
 }

@@ -36,7 +36,7 @@
   </div> <!-- ends row for carousel -->
   <!-- end carousel -->
   <!-- begin product placement -->
-  {% for k, v in products.items() %}
+  {% for product in products %}
   {% if loop.index == 1 or loop.index % 3 == 1 %}
   <div class="row top-margin-lg">
     {% endif %}
@@ -45,12 +45,12 @@
           <div class="card-img-top">
             <img src="http://placehold.it/250x250" alt="placeholder image" class="product-img">
           </div>
-          <div class="card-title">{{ v.title }}</div>
-          <div class="card-subtitle">${{ v.price }}</div>
+          <div class="card-title">{{ product.title }}</div>
+          <div class="card-subtitle">${{ product.price }}</div>
           <div class="card-text">
-            <p>{{ v.desc }}</p>
+            <p>{{ product.desc }}</p>
           </div>
-          <button class="btn btn-primary" onClick="console.log({{ k }})">Add to Cart</button>
+          <button class="btn btn-primary" onClick="addItem({{ product.id }})">Add to Cart</button>
         </div> <!-- ends card -->
       </div> <!-- end card col -->
       {% if loop.index % 3 == 0 or loop.length == loop.index %}
